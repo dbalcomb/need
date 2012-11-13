@@ -271,3 +271,35 @@ The callback function is allowed to return a value. By default if nothing is ret
 		ignores: ['a/b/*'], // ignore files matching pattern/path
 		success: function(){} // The callback function
 	});
+
+### logging
+
+.
+
+## Something
+
+…
+
+modules/ index.js only, not models.js
+	
+	var application = need.set('application', './'),
+		controllers = need.set('controllers', './controllers'),
+		models      = need.set('models',      './models'),
+		routes      = need.set('routes',      './routes'),
+		config      = need.set('config',      './config');
+		
+		
+	need('a/{dir}/*'); // a/b/c -> c: b
+	need('a/{dir}/x'); // a/b/c/x -> x: b/c
+	
+sending
+
+need.send
+need.each
+need.match
+	
+future improvements:
+support loading modules
+support loading json
+watch directory for moving files
+warning levels 0 == false == off, 1 == error, 2 == warn+error, 3 == warn+error+log
